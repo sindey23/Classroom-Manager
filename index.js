@@ -19,8 +19,23 @@ btn.addEventListener("click", function(){
 
     students.push(student)
     console.log(students)
-
-    
-
+    ResetStudentList()
 
 })
+
+function ResetStudentList(){
+    
+    list.innerHTML = ""
+
+    for (let index = 0; index < students.length; index++) {
+
+        const student = students[index]
+        
+        const studentName = document.createElement("h2")
+        studentName.textContent = student.Sname
+
+        list.appendChild(studentName)
+        
+        
+    }
+}
