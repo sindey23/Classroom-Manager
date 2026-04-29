@@ -2,7 +2,6 @@ let students = []
 
 const s = document.getElementById("name")
 const m = document.getElementById("marks")
-const a = document.getElementById("attend")
 const btn = document.getElementById("btn")
 const list = document.querySelector(".list")
 
@@ -30,6 +29,9 @@ function ResetStudentList(){
     for (let index = 0; index < students.length; index++) {
 
         const student = students[index]
+
+        const id = document.createElement("h2")
+        id.textContent = student.id
         
         const studentName = document.createElement("h2")
         studentName.textContent = student.Sname
@@ -44,6 +46,7 @@ function ResetStudentList(){
             toggleAttendance(student.id)
         })
 
+        list.appendChild(id)
         list.appendChild(studentName)
         list.appendChild(mark)
         list.appendChild(btn)
