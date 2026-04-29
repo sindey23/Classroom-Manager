@@ -6,18 +6,20 @@ const btn = document.getElementById("btn")
 const list = document.querySelector(".list")
 
 btn.addEventListener("click", function(){
-
+    if (s.value.trim() && m.value.trim() === "") {
+        alert("Please enter your name and mark");
+        return 
+    }
     const newStudent = s.value 
     const newMark = m.value
     const student = {
-        id: Date.now(),
+        id: students.length,
         Sname: newStudent,
         marks: Number(newMark) ,
         isPresent: false
     }
 
     students.push(student)
-    console.log(students)
     ResetStudentList()
 
 })
@@ -52,6 +54,9 @@ function ResetStudentList(){
         list.appendChild(btn)
         
     }
+
+    s.value = ""
+    m.value = ""
 }
 
 function toggleAttendance(id) {
